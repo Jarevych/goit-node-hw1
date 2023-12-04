@@ -24,7 +24,7 @@ function invokeAction({ action, id, name, email, phone }) {
         addContact(name, email, phone).then((newContact) => console.table(newContact));
       break;
     case "remove":
-        removeContact(id).then((updatedContacts) => console.table(updatedContacts));
+        removeContact(id).then((removedContact) => console.table(removedContact));
       break;
     default:
       console.warn("\x1B[31m Unknown action type!");

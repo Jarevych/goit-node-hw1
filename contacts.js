@@ -29,9 +29,10 @@ async function listContacts () {
     try {
         const data = await fs.readFile(contactsPath, 'utf-8')
         const contacts = JSON.parse(data)
+        const removedContact = contacts.find((c) => c.id === contactId)
         const updatedContacts = contacts.filter((c) => c.id !== contactId);
         await fs.writeFile(contactsPath, JSON.stringify(updatedContacts, null, 2), 'utf-8');
-        return updatedContacts
+        return removedContact
     } catch (err) {
     console.error(err.massage)
         return null
